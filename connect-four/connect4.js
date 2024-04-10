@@ -25,6 +25,7 @@ function switchCurrPlayer() {
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  gameState.board.fill(new Array(WIDTH).fill(null));
 }
 
 

@@ -24,17 +24,17 @@ function switchCurrPlayer() {
   // TODO: switch currPlayer 1 <-> 2
 }
 
-/** set "board" to HEIGHT x WIDTH matrix array filled with null */
+/** set gamestate "board" to HEIGHT x WIDTH matrix array filled with null */
 
 function makeBoard() {
   console.log("makeBoard");
 
   const board = gameState.board;
 
-  for (let i = 0; i < HEIGHT; i++) {
-    const row = new Array(WIDTH).fill(null);
+  for (let y = 0; y < HEIGHT; y++) {
+    const emptyRow = new Array(WIDTH).fill(null);
 
-    board[i] = row;
+    board[y] = emptyRow;
   }
 }
 

@@ -14,6 +14,8 @@ import {
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
+  console.log("makeHtmlBoard");
+
   const $htmlBoard = document.querySelector("#board");
 
   // create a new table row element

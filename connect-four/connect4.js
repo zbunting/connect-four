@@ -1,3 +1,5 @@
+"use strict";
+
 /** Connect Four
  *
  * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
@@ -22,9 +24,9 @@ function switchCurrPlayer() {
   // TODO: switch currPlayer 1 <-> 2
 }
 
+/** set "board" to HEIGHT x WIDTH matrix array filled with null */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
   gameState.board.fill(new Array(WIDTH).fill(null));
 }
 

@@ -12,7 +12,7 @@ const HEIGHT = 6;
 
 const gameState = {
   currPlayer: 1, // active player: 1 or 2
-  board: Array(HEIGHT), // array of HEIGHT number of slots
+  board: new Array(HEIGHT), // array of HEIGHT number of slots
   // Each array slot is empty to start, but will be filled in with an array
   // of WIDTH later.
   // These inner arrays will represent rows.
@@ -27,7 +27,15 @@ function switchCurrPlayer() {
 /** set "board" to HEIGHT x WIDTH matrix array filled with null */
 
 function makeBoard() {
-  gameState.board.fill(new Array(WIDTH).fill(null));
+  console.log("makeBoard");
+
+  const board = gameState.board;
+
+  for (let i = 0; i < HEIGHT; i++) {
+    const row = new Array(WIDTH).fill(null);
+
+    board[i] = row;
+  }
 }
 
 

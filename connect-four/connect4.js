@@ -77,7 +77,7 @@ function checkForWin() {
    * currPlayer
    */
   function _win(cells) {
-    console.log("win");
+    console.debug("win");
 
     const gameBoard = gameState.board;
     const currPlayer = gameState.currPlayer;
@@ -85,7 +85,6 @@ function checkForWin() {
     //Check four cells to see if they're all legal & all color of current
     // player
 
-    console.log({cells})
     return cells.every(([y, x]) => {
       return gameBoard[y][x] === currPlayer;
     });
@@ -95,8 +94,8 @@ function checkForWin() {
   // using HEIGHT and WIDTH, generate "check list" of coordinates
   // for 4 cells (starting here) for each of the different
   // ways to win: horizontal, vertical, diagonalDR, diagonalDL
-  for (let y = 0; y < HEIGHT; y++) {
-    for (let x = 0; x < WIDTH; x++) {
+  for (let y = 0; y < HEIGHT - 3; y++) {
+    for (let x = 0; x < WIDTH - 3; x++) {
       // TODO: assign values to the below variables for each of the ways to win
       // horizontal has been assigned for you
       // each should be an array of 4 cell coordinates:
@@ -133,5 +132,6 @@ export {
   makeBoard,
   findSpotInCol,
   checkForWin,
+  checkForTie,
   switchCurrPlayer,
 };

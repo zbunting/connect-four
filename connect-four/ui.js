@@ -98,6 +98,7 @@ function handleClick(evt) {
   // place piece in board
   // TODO: add line to update `board` state with new piece
 
+
   // add to HTML table
   placeInTable(y, x);
 
@@ -107,9 +108,12 @@ function handleClick(evt) {
   }
 
   // check for tie: if top row is filled, board is filled
-  // TODO: check if all cells in board are filled; if so, call endGame
+  if(checkForTie()) {
+    return endGame(`Players tied!`);
+  }
 
-  // TODO: switch players
+  //switch players
+  switchCurrPlayer();
 }
 
 

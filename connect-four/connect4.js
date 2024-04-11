@@ -44,8 +44,13 @@ function makeBoard() {
  */
 
 function findSpotInCol(x) {
-  // TODO: write the real version of this, rather than always returning 5
-  return 5;
+  console.debug("findSpotInCol");
+  
+  const gameBoard = gameState.board;
+
+  for (let y = HEIGHT - 1; y >= 0; y--) {
+    if(gameBoard[y][x] === null) return y;
+  }
 }
 
 

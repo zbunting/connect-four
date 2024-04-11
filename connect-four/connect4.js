@@ -19,9 +19,15 @@ const gameState = {
   // gameState.board[HEIGHT][0] represents the bottom-left spot on the board
 };
 
-
+/* Switch the gamestate's currPlayer to the next player */
 function switchCurrPlayer() {
-  // TODO: switch currPlayer 1 <-> 2
+  console.log("switchCurrPlayer", gameState.currPlayer);
+
+  if (gameState.currPlayer === 1) {
+    gameState.currPlayer = 2;
+  } else {
+    gameState.currPlayer = 1;
+  }
 }
 
 /** set gamestate "board" to HEIGHT x WIDTH matrix array filled with null */
@@ -71,16 +77,18 @@ function checkForWin() {
    * currPlayer
    */
   function _win(cells) {
+    console.log("win");
 
     const gameBoard = gameState.board;
     const currPlayer = gameState.currPlayer;
 
-    // TODO: Check four cells to see if they're all legal & all color of current
+    //Check four cells to see if they're all legal & all color of current
     // player
 
-    return cells.every(([y,x]) => {
+    console.log({cells})
+    return cells.every(([y, x]) => {
       return gameBoard[y][x] === currPlayer;
-    })
+    });
 
   }
 
@@ -113,6 +121,10 @@ function checkForWin() {
   return false;
 }
 
+/* Check the entire board for a tie */
+function checkForTie() {
+  return gameState.board[0].every(cell => cell !== null);
+}
 
 export {
   WIDTH,

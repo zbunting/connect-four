@@ -49,10 +49,10 @@ function findSpotInCol(x) {
   const gameBoard = gameState.board;
 
   //Checks if the column is filled
-  if(gameBoard[0][x] !== null) return null;
+  if (gameBoard[0][x] !== null) return null;
 
   for (let y = HEIGHT - 1; y >= 0; y--) {
-    if(gameBoard[y][x] === null) {
+    if (gameBoard[y][x] === null) {
 
       gameBoard[y][x] = gameState.currPlayer;
       return y;
@@ -72,8 +72,15 @@ function checkForWin() {
    */
   function _win(cells) {
 
+    const gameBoard = gameState.board;
+    const currPlayer = gameState.currPlayer;
+
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
+
+    return cells.every(([y,x]) => {
+      return gameBoard[y][x] === currPlayer;
+    })
 
   }
 
@@ -88,9 +95,14 @@ function checkForWin() {
       // [ [y, x], [y, x], [y, x], [y, x] ]
 
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      let vert;
-      let diagDL;
-      let diagDR;
+      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      let diagDL = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+      let diagDR = [
+        [y, (WIDTH - 1) - x],
+        [y + 1, (WIDTH - 1) - x - 1],
+        [y + 2, (WIDTH - 1) - x - 2],
+        [y + 3, (WIDTH - 1) - x - 3],
+      ];
 
       // find winner (only checking each win-possibility as needed)
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {

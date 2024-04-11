@@ -44,7 +44,7 @@ function makeHtmlBoard() {
 
       // add an id, c-y-x, to the above table cell element
       //   (for example, for the cell at y=2, x=3, the ID should be "c-2-3")
-      $cell.setAttribute("id",`c-${y}-${x}`);
+      $cell.setAttribute("id", `c-${y}-${x}`);
 
       // append the table cell to the table row
       $row.append($cell);
@@ -57,11 +57,21 @@ function makeHtmlBoard() {
 }
 
 
-/** placeInTable: update DOM to place piece into HTML table of board */
+/** placeInTable: update DOM to place piece into HTML table of board
+  Adds class of p1 or p2 depending on the current player
+
+*/
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  console.log("placeInTable", { y, x });
+
+  const currPlayer = gameState.currPlayer;
   const $currPiece = document.createElement("div");
+  $currPiece.classList.add("p" + currPlayer);
+  $currPiece.classList.add("piece");
+
+  const $currCell = document.querySelector(`#c-${y}-${x}`);
+  $currCell.append($currPiece);
 }
 
 

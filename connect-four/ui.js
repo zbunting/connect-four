@@ -8,6 +8,7 @@ import {
   findSpotInCol,
   checkForWin,
   switchCurrPlayer,
+  checkForTie
 } from "./connect4.js";
 
 

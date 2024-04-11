@@ -45,8 +45,11 @@ function makeBoard() {
 
 function findSpotInCol(x) {
   console.debug("findSpotInCol");
-  
+
   const gameBoard = gameState.board;
+
+  //Checks if the column is filled
+  if(gameBoard[0][x] !== null) return null;
 
   for (let y = HEIGHT - 1; y >= 0; y--) {
     if(gameBoard[y][x] === null) return y;

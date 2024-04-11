@@ -52,7 +52,11 @@ function findSpotInCol(x) {
   if(gameBoard[0][x] !== null) return null;
 
   for (let y = HEIGHT - 1; y >= 0; y--) {
-    if(gameBoard[y][x] === null) return y;
+    if(gameBoard[y][x] === null) {
+
+      gameBoard[y][x] = gameState.currPlayer;
+      return y;
+    }
   }
 }
 

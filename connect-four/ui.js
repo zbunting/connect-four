@@ -61,6 +61,7 @@ function makeHtmlBoard() {
 
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
+  const $currPiece = document.createElement("div");
 }
 
 
@@ -74,6 +75,7 @@ function endGame(msg) {
 /** handleClick: handle click of column top to play piece */
 
 function handleClick(evt) {
+  console.debug("handleClick");
   // get x from ID of clicked cell
   const x = Number(evt.target.id.slice("top-".length));
 
